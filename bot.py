@@ -1,3 +1,24 @@
+#Flowbot by Kr3s
+import discord
+import asyncio
+import urllib.request
+import urllib.parse
+
+values = {'q':'u=6380416'}
+
+data = urllib.parse.urlencode(values)
+url = 'http://forum.toribash.com/member.php?u=6380416'+data
+#data = data.encode('utd-8')
+
+headers = { }
+headers['User-Agent'] = 'Mozilla/5.0 (X11; Linux i686)'
+
+req = urllib.request.Request(url, headers=headers)
+resp = urllib.request.urlopen(req)
+resp_data = resp.read()
+
+print(resp_data)
+
 client = discord.Client()
 
 @client.event
